@@ -1,23 +1,20 @@
 from django.db import models
 
 class Imovel(models.Model):
+    PET_FRIENDLY = (
+        ('S', 'Sim'),
+        ('N', 'Não'),
+    )
+
     id_imovel = models.CharField(max_length=10, primary_key=True)
-    limite_hospedes = models.IntegerField(max_length=10)
-    banheiros = models.IntegerField(max_length=10)
-    pet_friendly = models.BooleanField()
+    limite_hospedes = models.IntegerField()
+    banheiros = models.IntegerField()
+    pet_friendly = models.CharField(max_length=1, choices=PET_FRIENDLY, blank=False, null=False, default='S')
     valor_limpeza = models.FloatField(max_length=10)
     data_ativacao = models.DateField()
     criado_em = models.DateTimeField()
     atualizado_em = models.DateTimeField()
 
-    class imovel(object):
-        def __init__(self, id_imovel, limite_hospedes, banheiros, pet_friendly, valor_limpeza, data_ativacao, criado_em, atualizado_em)
-            self.id_movel = id_imovel
-            self.limite = limite_hospedes
-            self.banheiros = banheiros
-            self.pet_friendly = pet_friendly
-            self.valor_limpeza = valor_limpeza
-            self.data_ativacao = data_ativacao
-            self.criado_em = criado_em
-            self.atualizado_em = atualizado_em
+    def __str__(self):
+        return self.id_imovel
 

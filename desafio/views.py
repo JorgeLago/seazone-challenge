@@ -1,4 +1,8 @@
-from django.shortcuts import render
-from .models import Imovel
+from rest_framework import viewsets
+from desafio.models import Imovel
+from desafio.serializer import ImovelSerializer
 
-def novo_imovel(request):
+class ImovelViewSet(viewsets.ModelViewSet):
+    """Exibindo todos os Imoveis"""
+    queryset = Imovel.objects.all()
+    serializer_class = ImovelSerializer
