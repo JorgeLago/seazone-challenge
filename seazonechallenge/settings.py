@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'desafio',
     'rest_framework',
+    'django_seed',
     'django_filters',
 ]
 
